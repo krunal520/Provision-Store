@@ -75,8 +75,5 @@ Search Bar
 - **Product List API**:
   - **GET**: `https://api.kalpav.com/api/v1/product/category/retail`
 
-## Credits
-
-- Logo: [Hindigraphics]([http://www.hindigraphics.in/wpcontent/uploads/2019/01/pro.png](http://www.hindigraphics.in/wp-)http://www.hindigraphics.in/wp-)
   
 
