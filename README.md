@@ -77,6 +77,6 @@ Search Bar
 
 ## Credits
 
-- Logo: [Hindigraphics](http://www.hindigraphics.in/wpcontent/uploads/2019/01/pro.png)
+- Logo: [Hindigraphics]([http://www.hindigraphics.in/wpcontent/uploads/2019/01/pro.png](http://www.hindigraphics.in/wp-)http://www.hindigraphics.in/wp-)
   
 
