@@ -40,7 +40,7 @@ const ProductList = () => {
         className="search-bar"
         type="text"
         placeholder="Search by product name..."
-        onChange={handleSearch} // Use onChange instead of onKeyPress
+        onChange={handleSearch} 
       />
       <div className="product-list">
         {filteredProducts.map(product => (
@@ -55,5 +55,8 @@ const ProductList = () => {
     </div>
   );
 };
+
+
+
 
 export default ProductList;

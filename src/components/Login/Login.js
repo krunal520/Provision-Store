@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Login.css'; // Import your CSS file
+import './Login.css'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  // validation for email
   const validateEmail = (email) => {
-    // Basic email validation regex
+
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
+  // validation for an password 
   const validatePassword = (password) => {
-    
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\d\s])[A-Za-z\d^\w\s]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\d\s]).{8,}$/;
     return regex.test(password);
+  };
+
+  const sha256 = async (password) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+
+    const hashArray = Array.from(new Uint8Array(buffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashHex;
   };
 
   const handleSubmit = async (e) => {
@@ -33,8 +46,7 @@ const Login = () => {
       return;
     }
 
-    // Convert password to sha256 format (this is a placeholder, actual conversion method should be used)
-    const sha256Password = sha256(password);
+    const sha256Password = await sha256(password);
 
     const formData = new FormData();
     formData.append('username', email);
@@ -42,7 +54,12 @@ const Login = () => {
     formData.append('grant_type', 'password');
 
     try {
-      const response = await axios.post('https://apiv2stg.promilo.com/user/oauth/token', formData);
+      const response = await axios.post('https://apiv2stg.promilo.com/user/oauth/token', formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg=='
+        }
+      });
       // Handle successful login response
       console.log('Login successful!', response.data);
       // For example, store the access token in local storage
@@ -54,13 +71,6 @@ const Login = () => {
         setError('An error occurred during login. Please try again later.');
       }
     }
-  };
-
-  //sha256
-  const sha256 = (password) => {
-    const hash = crypto.createHash('sha256'); // Create a sha256 hash object
-    hash.update(password); // Update the hash with the password
-    return hash.digest('hex'); // Get the hashed password in hexadecimal format
   };
 
   return (
