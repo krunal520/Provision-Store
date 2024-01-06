@@ -1,0 +1,63 @@
+/* ProductList.css */
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  margin-top: 70px;
+}
+
+.product-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: calc(33.33% - 20px); /* Three items in one row */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.product-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 170px;
+  margin-left: 20px;
+}
+
+.search-bar {
+  margin-top: 50px;
+  width: 200px;
+  /* Adjust the width of the search bar */
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-left: 82%;
+  color: black;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 5px auto 0; /* Align image at the top */
+  margin-left: 20px;
+  position: absolute; /* Position the image absolutely */
+  top: 0; /* Position from top */
+  left: 0; /* Position from left */
+}
