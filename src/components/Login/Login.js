@@ -9,12 +9,11 @@ const Login = () => {
 
   // validation for email
   const validateEmail = (email) => {
-
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
-  // validation for an password 
+  // validation for a password 
   const validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\d\s]).{8,}$/;
     return regex.test(password);
@@ -48,7 +47,7 @@ const Login = () => {
 
     const sha256Password = await sha256(password);
 
-    const formData = new FormData();
+    const formData = new URLSearchParams();
     formData.append('username', email);
     formData.append('password', sha256Password);
     formData.append('grant_type', 'password');
@@ -60,10 +59,15 @@ const Login = () => {
           'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg=='
         }
       });
+
       // Handle successful login response
       console.log('Login successful!', response.data);
       // For example, store the access token in local storage
-      localStorage.setItem('accessToken', response.data.access_token);
+      const accessToken = response.data.access_token;
+      localStorage.setItem('accessToken', accessToken);
+
+      // Redirect to the product list page
+      window.location.href = '/product-list'; // Change this URL to your product list route
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setError('Invalid email or password');
