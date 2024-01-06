@@ -44,7 +44,7 @@ const ProductList = () => {
     <div>
       {isLoggedIn && (
         <div>
-          <img className='img' src='http://www.hindigraphics.in/wp-content/uploads/2019/01/pro.png' alt='' />
+          <img className='img' src={'/img.png'} alt='' />
           <input
             className="search-bar"
             type="text"
