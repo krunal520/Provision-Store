@@ -79,7 +79,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <img className='img1' src={'http://www.hindigraphics.in/wp-content/uploads/2019/01/pro.png'} alt='' />
+      <img className='img1' src={'/img.png'} alt='' />
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="email"
