@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './ProductList.css';
 
@@ -11,12 +12,10 @@ const ProductList = () => {
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
-      // If access token exists, set isLoggedIn to true
       setIsLoggedIn(true);
       fetchData();
     } else {
-      // If access token doesn't exist, redirect to login
-      window.location.href = '/login'; // Change this URL to your login route
+      window.location.href = '/login';
     }
   }, []);
 
@@ -45,11 +44,14 @@ const ProductList = () => {
       {isLoggedIn && (
         <div>
           <img className='img' src={'/img.png'} alt='' />
+          <Link to="/about">
+            <button className='about'>About Page</button>
+          </Link>
           <input
             className="search-bar"
             type="text"
             placeholder="Search by product name..."
-            onChange={handleSearch} 
+            onChange={handleSearch}
           />
           <div className="product-list">
             {filteredProducts.map(product => (

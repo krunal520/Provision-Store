@@ -61,3 +61,15 @@
   top: 0; /* Position from top */
   left: 0; /* Position from left */
 }
+
+.about{
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 1140px;
+  margin-top: 20px;
+}
