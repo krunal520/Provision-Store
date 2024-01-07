@@ -70,6 +70,25 @@
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 1140px;
+  margin-left: 1100px;
   margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+  margin-bottom: 10px; /* Optional: Add margin to create space between buttons and search bar */
+}
+
+
+.logout{
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  background-color: #fd5203;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 20px;
+ 
 }

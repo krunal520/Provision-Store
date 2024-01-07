@@ -44,9 +44,14 @@ const ProductList = () => {
       {isLoggedIn && (
         <div>
           <img className='img' src={'/img.png'} alt='' />
-          <Link to="/about">
-            <button className='about'>About Page</button>
-          </Link>
+          <div className="button-container">
+            <Link to="/about">
+              <button className='about'>About</button>
+            </Link>
+            <Link to="/login">
+              <button className='logout'>Logout</button>
+            </Link>
+          </div>
           <input
             className="search-bar"
             type="text"

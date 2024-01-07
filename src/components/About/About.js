@@ -15,10 +15,9 @@ const About = () => {
           <li>
             <strong>src/</strong>
             <ul>
-              <li><strong>components/</strong>: Contains React components.</li>
+              <li><strong>components/</strong>: Contains React components and their CSS file</li>
               <li><strong>services/</strong>: Manages API integration and services.</li>
-              <li><strong>assets/</strong>: Stores static assets (e.g., images).</li>
-              <li><strong>styles/</strong>: Holds CSS files and global styles.</li>
+              <li><strong>styles/</strong>: global styles.</li>
               <li><strong>App.js</strong>: Entry point of the application.</li>
             </ul>
           </li>
